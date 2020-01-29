@@ -2,12 +2,19 @@
 	st = status
 	co = checkout
 	cob = checkout -b
+	branches = branch -a
 	cm = !git add -A && git commit -m
 	amend = commit -a --amend
 	up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+	save = !git add -A && git commit -m 'SAVEPOINT'
+	wip = commit -am "WIP"
+	undo = reset HEAD~1 --mixed
 	wipe = !git add -A && git commit -qm WIPE
 	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f"
-  bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
+  	bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
+	psuo = push --set-upstream origin
+	pu = "!git fetch origin;git fetch upstream;git merge upstream/master"
 [user]
 	email = kaiquelimaandre@outlook.com
 	name = kaiquelm
+
