@@ -14,7 +14,4 @@
   	bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
 	psuo = push --set-upstream origin
 	pu = "!git fetch origin;git fetch upstream;git merge upstream/master"
-[user]
-	email = kaiquelimaandre@outlook.com
-	name = kaiquelm
 
